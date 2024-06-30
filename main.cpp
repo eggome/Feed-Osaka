@@ -18,11 +18,9 @@ inline void Paint(bool dragging,int mousex=-1,int mousey=-1)
 	cleardevice();
 	setfillcolor(EGERGB(0xff,0xff,0xff));
 	setcolor(EGERGB(0xff,0xff,0xff));
-//	bar(150,300,300,450);	no border radius
 	bar(158,308,292,442);
 	bar(150,308,158,442);bar(158,300,292,308);bar(292,308,300,442);bar(158,442,292,450);
 	fillcircle(158,308,8);fillcircle(158,442,8);fillcircle(292,308,8);fillcircle(292,442,8);
-//	bar(360,120,1080,640);	no border radius
 	bar(368,128,1072,632);
 	bar(360,128,368,632);bar(368,120,1072,308);bar(1072,128,1080,632);bar(368,632,1072,640);
 	fillcircle(368,128,8);fillcircle(368,632,8);fillcircle(1072,128,8);fillcircle(1072,632,8);
@@ -38,6 +36,7 @@ inline void Paint(bool dragging,int mousex=-1,int mousey=-1)
 int main()
 {
 	initgraph(1280,720,INIT_RENDERMANUAL);
+	setcaption("Feed Osaka");
 	setbkcolor(EGERGB(255,192,203));
 	osaka1=newimage(1,1);osaka2=newimage(1,1);bread=newimage(1,1);
 	getimage_pngfile(osaka1,"1.png");getimage_pngfile(osaka2,"2.png");getimage_pngfile(bread,"bread.png");
@@ -49,7 +48,6 @@ int main()
 		{
 			mousepos(&mousex,&mousey);
 			if(!lmbon&&OnBread(mousex,mousey))	dragging=1;
-			printf("%d %d\n",mousex,mousey);
 			lmbon=1;
 		}
 		else
@@ -57,7 +55,6 @@ int main()
 			if(InOsaka(mousex,mousey)&&dragging)	++cntBread;
 			dragging=lmbon=0;
 		}
-		printf("%d\n",cntBread);
 	}
 	return 0;
 }
