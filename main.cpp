@@ -26,12 +26,12 @@ inline void Paint(bool dragging,int mousex=-1,int mousey=-1)
 	fillcircle(368,128,8);fillcircle(368,632,8);fillcircle(1072,128,8);fillcircle(1072,632,8);
 	if(!dragging||!InOsaka(mousex,mousey))	putimage(382,127,osaka1);
 	else	putimage(382,127,osaka2);
-	if(!dragging)	putimage_withalpha(nullptr,bread,175,320);
-	else	putimage_withalpha(nullptr,bread,mousex-50,mousey-60);
 	setfont(-30,0,"Segoe UI Bold");
 	setcolor(EGERGB(0,0,0));
 	outtextxy(434,24,"Will She Eat the Bread: The Video Game");
 	xyprintf(580,70,"%d bread eaten",cntBread);
+	if(!dragging)	putimage_withalpha(nullptr,bread,175,320);
+	else	putimage_withalpha(nullptr,bread,mousex-50,mousey-60);
 }
 int main()
 {
